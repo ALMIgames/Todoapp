@@ -14,9 +14,25 @@ $(document).ready(function() {
 		function runBind() {
         $('.destroy').on('click', function(e) {
           $currentListItem = $(this).closest('li');
-
           $currentListItem.remove();
         });
+
+        $('.item').on('dblclick', function(e){
+            $('.item').hide();
+            $('.edit').show();
+
+        });
+
+        $('.edit').keypress(function(e) {
+            if (e.which === EnterKey) {
+                $('.item').val('' + $('.edit').val()) ;
+                $('.item').show();
+                $('.edit').hide();
+
+
+            }
+        });
+
 
         $('.toggle').on('click', function(e) {
           var $currentListItemLabel = $(this).closest('li').find('label');
@@ -33,7 +49,8 @@ $(document).ready(function() {
 		  }
 			});
 		}
-	
+
+
 	$todoList = $('#todo-list');
 	$('#new-todo').keypress(function(e) {
     if (e.which === EnterKey) {
@@ -44,7 +61,8 @@ $(document).ready(function() {
 				"<li>" +
           "<div class='view'>" +
             "<input class='toggle' type='checkbox'>" +
-            "<label data=''>" + " " + $('#new-todo').val() + "</label>" +
+            "<input class='edit' type='text'>" +
+            "<label class='item' data=''>" + " " + $('#new-todo').val() + "</label>" +
             "<a class='destroy'></a>" +
           "</div>" +
         "</li>";

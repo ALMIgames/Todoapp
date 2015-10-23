@@ -182,3 +182,7 @@ text-align: center;
 #credits a {
 color: #888;
 }
+
+.edit{
+    display: none;
+}
