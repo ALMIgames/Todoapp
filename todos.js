@@ -25,11 +25,11 @@ $(document).ready(function() {
 
         $('.edit').keypress(function(e) {
             if (e.which === EnterKey) {
-                $('.item').val('' + $('.edit').val()) ;
+
+
+
                 $('.item').show();
                 $('.edit').hide();
-
-
             }
         });
 
